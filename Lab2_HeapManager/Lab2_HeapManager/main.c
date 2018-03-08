@@ -264,5 +264,3 @@ int main(int argc, const char * argv[]) {
     printf("\nTest 5 Result: %d\n", test_5());
     return 0;
 }
-
-
