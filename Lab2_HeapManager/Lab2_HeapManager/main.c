@@ -10,13 +10,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+// Heap size for each test case.
+static int HEAP_SIZE = 10000;
+
 // Part 1
 struct Block {
     int block_size; // # of bytes in the data section
     struct Block *next_block; // in C, you have to use struct Block  as the type
 };
-
-static int HEAP_SIZE = 100000;
 
 // Part 2: Size of our minimum memory blocks.
 static int OVERHEAD_SIZE = sizeof(struct Block);
@@ -29,7 +30,7 @@ struct Block* free_head;
 
 // Part 5: Create an initializer that grabs a block of memory and point free_head to the block.
 void my_initialize_heap(int size) {
-    printf("=== MY_INITIALIZE_HEAP OF SIZE: %d ===\n", size);
+    printf("\n=== MY_INITIALIZE_HEAP OF SIZE: %d ===\n", size);
     free_head = malloc(size);
     printf("Free Head Location: %d\n", (int)free_head);
     free_head -> block_size = size - OVERHEAD_SIZE;
@@ -41,7 +42,7 @@ void my_initialize_heap(int size) {
 // Part 6: Create a function void* my_alloc(int size), which fills an allocation
 // request of size bytes and returns a pointer to the data portion of the block used to satisfy the request.
 void* my_alloc(int size) {
-    printf("=== MY_ALLOC OF SIZE: %d ===\n", size);
+    printf("\n=== MY_ALLOC OF SIZE: %d ===\n", size);
     // Size must be greater than or equal to 0 to allocate.
     if (size < 0)
         return NULL;
@@ -58,8 +59,9 @@ void* my_alloc(int size) {
             
             // Check if the current block size is a multiple of VOID_POINTER_SIZE.
             int remainder = size % VOID_POINTER_SIZE;
-            int mutate = size;
+            
             // If not, add enough to make it a multiple of VOID_POINTER_SIZE.
+            int mutate = size;
             if(remainder != 0) {
                 mutate += VOID_POINTER_SIZE - remainder;
             }
@@ -72,44 +74,37 @@ void* my_alloc(int size) {
                 printf("Splitting...\n");
                 
                 // Make the new block, update all pointers.
-                struct Block* new_block = (struct Block*)((char*)current_block + OVERHEAD_SIZE + size); // should this be the mutate or the size added to the address of new block?
+                struct Block* new_block = (struct Block*)((char*)current_block + OVERHEAD_SIZE + mutate );
                 new_block -> block_size = (current_block -> block_size) - size - OVERHEAD_SIZE;
                 new_block -> next_block = current_block -> next_block;
-                
                 // Current at head
                 if(current_block == free_head) {
                     printf("Head update...\n");
                     free_head = new_block;
                 }
-                
                 // Current in Chain
                 else {
                     printf("Chain update...\n");
                     previous_block -> next_block = new_block;
                 }
-                
                 // Update current block
                 current_block -> block_size = size;
                 current_block -> next_block = NULL;
-                
             }
             
             // Not splitting
             else {
                 printf("Not Splitting...\n");
-                
                 // Current at head
                 if(current_block == free_head) {
                     printf("Head update...\n");
                     free_head = current_block -> next_block;
                 }
-                
                 // Current in Chain
                 else {
                     printf("Chain update...\n");
                     previous_block -> next_block = current_block -> next_block;
                 }
-                
                 // Update current block
                 current_block -> block_size = size;
                 current_block -> next_block = NULL;
@@ -132,7 +127,7 @@ void* my_alloc(int size) {
 // move backwards in memory to find the block's overhead information,
 // and then link it into the free list.
 void my_free(void* data) {
-    printf("=== MY_FREE ===\n");
+    printf("\n=== MY_FREE ===\n");
     struct Block* free_block = data;
     printf("Free block location: %d\n", (int)free_block);
     free_block -> next_block = free_head;
@@ -141,6 +136,7 @@ void my_free(void* data) {
 
 bool test_1() {
     // Arrange
+    my_initialize_heap(HEAP_SIZE);
     bool is_equal = false;
     
     // Act
@@ -159,8 +155,9 @@ bool test_1() {
 
 bool test_2() {
     // Arrange
+    my_initialize_heap(HEAP_SIZE);
     bool is_equal = false;
-    int distance = sizeof(int) + OVERHEAD_SIZE;
+    int distance = VOID_POINTER_SIZE + OVERHEAD_SIZE;
     
     // Act
     void* test_block_1 = my_alloc(sizeof(int));
@@ -176,45 +173,76 @@ bool test_2() {
 }
 
 bool test_3() {
+    // Arrange
+    my_initialize_heap(HEAP_SIZE);
     bool is_equal = false;
-    
-    
+    int distance = VOID_POINTER_SIZE + OVERHEAD_SIZE;
+
+    // Act
     void* test_block_1 = my_alloc(sizeof(int));
-    printf("Block 1 Location: %d\n", (int)test_block_1);
+    printf("Test Block 1 Location: %d\n", (int)test_block_1);
     void* test_block_2 = my_alloc(sizeof(int));
-    printf("Block 2 Location: %d\n", (int)test_block_2);
+    printf("Test Block 2 Location: %d\n", (int)test_block_2);
     void* test_block_3 = my_alloc(sizeof(int));
-    printf("Block 3 Location: %d\n", (int)test_block_3);
+    printf("Test Block 3 Location: %d\n", (int)test_block_3);
     my_free(test_block_2);
     void* test_block_4 = my_alloc(sizeof(double));
-    printf("Block 4 Location: %d\n", (int)test_block_4);
+    printf("Test Block 4 Location: %d\n", (int)test_block_4);
     void* test_block_5 = my_alloc(sizeof(char));
-    printf("Block 5 Location: %d\n", (int)test_block_5);
-    int distance = sizeof(int) + OVERHEAD_SIZE;
+    printf("Test Block 5 Location: %d\n", (int)test_block_5);
+    
+    // Assert
+    if((test_block_2 - test_block_1 == distance) &&
+       (test_block_3 - test_block_2 == distance) &&
+       (test_block_4 - test_block_3 == distance) &&
+       (test_block_5 == test_block_2)) {
+        is_equal = true;
+    }
+
     return is_equal;
 }
 
 bool test_4() {
+    // Arrange
+    my_initialize_heap(HEAP_SIZE);
     bool is_equal = false;
-    void* test_block_char = my_alloc(sizeof(char));
-    printf("Block 1 Location: %d\n", (int)test_block_char);
-    void* test_block_int = my_alloc(sizeof(int));
-    printf("Block 2 Location: %d\n", (int)test_block_int);
-    int distance = sizeof(int) + OVERHEAD_SIZE;
-    if(test_block_char - test_block_int == distance) {
+    int distance = VOID_POINTER_SIZE + OVERHEAD_SIZE;
+    
+    // Act
+    void* test_block_1 = my_alloc(sizeof(char));
+    printf("Test Block 1 Location: %d\n", (int)test_block_1);
+    void* test_block_2 = my_alloc(sizeof(int));
+    printf("Test Block 2 Location: %d\n", (int)test_block_2);
+    
+    // Assert
+    if(test_block_2 - test_block_1 == distance) {
         is_equal = true;
     }
     return is_equal;
 }
 
 bool test_5() {
+    // Arrange
+    my_initialize_heap(HEAP_SIZE);
     bool is_equal = false;
-    void* test_block_array = my_alloc(sizeof(int[100]));
-    printf("Block 1 Location: %d\n", (int)test_block_array);
-    void* test_block_int = my_alloc(sizeof(int));
-    printf("Block 2 Location: %d\n", (int)test_block_int);
-    my_free(test_block_array);
-    printf("Block 2 Location: %d\n", (int)test_block_int);
+    int distance = sizeof(int[100]) + OVERHEAD_SIZE;
+    
+    // Act
+    void* test_block_1 = my_alloc(sizeof(int[100]));
+    void* temp_block_1 = test_block_1;
+    printf("Test Block 1 Location: %d\n", (int)test_block_1);
+    void* test_block_2 = my_alloc(sizeof(int));
+    printf("Test Block 2 Location: %d\n", (int)test_block_2);
+    my_free(test_block_1);
+    printf("Test Block 2 Location: %d\n", (int)test_block_2);
+    
+    // Assert
+    if(test_block_2 - test_block_1 == distance) {
+        is_equal = true;
+    }
+    if(temp_block_1 != test_block_1) {
+        is_equal = false;
+    }
     
     return is_equal;
 }
@@ -223,8 +251,7 @@ bool test_5() {
 int main(int argc, const char * argv[]) {
     printf("**************** RUN MAIN ***************\n");
     printf("Block Size: %d\n", OVERHEAD_SIZE);
-    printf("Void Pointer Size: %d\n\n", VOID_POINTER_SIZE);
-    my_initialize_heap(HEAP_SIZE);
+    printf("Void Pointer Size: %d\n", VOID_POINTER_SIZE);
     printf("\n************** Test Case 1 **************\n");
     printf("\nTest 1 Result: %d\n", test_1());
     printf("\n************** Test Case 2 **************\n");
