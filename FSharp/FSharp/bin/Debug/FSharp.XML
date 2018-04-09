@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>FSharp</name></assembly>
+<members>
+<member name="P:Tutorial.Events.simpleEvent">
+<summary>
+ First, create instance of Event object that consists of subscription point (event.Publish) and event trigger (event.Trigger).
+</summary>
+</member>
+<member name="T:Tutorial.Events">
+<summary>
+ Events are a common idiom for .NET programming, especially with WinForms or WPF applications.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/members/events
+</summary>
+</member>
+<member name="P:Tutorial.ParallelArrayProgramming.oneBigArray">
+<summary>
+ First, an array of inputs.
+</summary>
+</member>
+<member name="T:Tutorial.ParallelArrayProgramming">
+<summary>
+ The FSharp.Core library defines a range of parallel processing functions.  Here
+ you use some functions for parallel processing over arrays.
+
+ To learn more, see: https://msdn.microsoft.com/en-us/visualfsharpdocs/conceptual/array.parallel-module-%5Bfsharp%5D
+</summary>
+</member>
+<member name="T:Tutorial.ImplementingInterfaces.ReadFile">
+<summary>
+ This is a type that implements IDisposable.
+</summary>
+</member>
+<member name="P:Tutorial.ImplementingInterfaces.interfaceImplementation">
+<summary>
+ This is an object that implements IDisposable via an Object Expression
+ Unlike other languages such as C# or Java, a new type definition is not needed 
+ to implement an interface.
+</summary>
+</member>
+<member name="T:Tutorial.ImplementingInterfaces">
+<summary>
+ Interfaces are object types with only &apos;abstract&apos; members.
+ Object types and object expressions can implement interfaces.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/interfaces
+</summary>
+</member>
+<member name="F:Tutorial.DefiningGenericClasses.StateTracker`1.states">
+<summary>
+ This internal field store the states in a list.
+</summary>
+</member>
+<member name="P:Tutorial.DefiningGenericClasses.StateTracker`1.History">
+<summary>
+ Get the entire list of historical states.
+</summary>
+</member>
+<member name="P:Tutorial.DefiningGenericClasses.StateTracker`1.Current">
+<summary>
+ Get the latest state.
+</summary>
+</member>
+<member name="M:Tutorial.DefiningGenericClasses.StateTracker`1.UpdateState(`0)">
+<summary>
+ Add a new element to the list of states.
+</summary>
+</member>
+<member name="P:Tutorial.DefiningGenericClasses.tracker">
+<summary>
+ An &apos;int&apos; instance of the state tracker class. Note that the type parameter is inferred.
+</summary>
+</member>
+<member name="T:Tutorial.DefiningGenericClasses">
+<summary>
+ Generic classes allow types to be defined with respect to a set of type parameters.
+ In the following, &apos;T is the type parameter for the class.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/generics/
+</summary>
+</member>
+<member name="F:Tutorial.DefiningClasses.Vector2D.length">
+<summary>
+ This internal field stores the length of the vector, computed when the 
+ object is constructed
+</summary>
+</member>
+<member name="M:Tutorial.DefiningClasses.Vector2D.Scale(System.Double)">
+<summary>
+ This member is a method.  The previous members were properties.
+</summary>
+</member>
+<member name="T:Tutorial.DefiningClasses.Vector2D">
+<summary>
+ A simple two-dimensional Vector class.
+
+ The class&apos;s constructor is on the first line,
+ and takes two arguments: dx and dy, both of type &apos;double&apos;.
+</summary>
+</member>
+<member name="P:Tutorial.DefiningClasses.vector2">
+<summary>
+ Get a new scaled vector object, without modifying the original object.
+</summary>
+</member>
+<member name="P:Tutorial.DefiningClasses.vector1">
+<summary>
+ This is how you instantiate the Vector2D class.
+</summary>
+</member>
+<member name="T:Tutorial.DefiningClasses">
+<summary>
+ Classes are a way of defining new object types in F#, and support standard Object-oriented constructs.
+ They can have a variety of members (methods, properties, events, etc.)
+
+ To learn more about Classes, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/classes
+
+ To learn more about Members, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/members
+</summary>
+</member>
+<member name="P:Tutorial.UnitsOfMeasure.mile.asMeter">
+<summary>
+ Conversion factor mile to meter.
+</summary>
+</member>
+<member name="T:Tutorial.UnitsOfMeasure.mile">
+<summary>
+ Next, define a new unit type
+</summary>
+</member>
+<member name="P:Tutorial.UnitsOfMeasure.sampleValue3">
+<summary>
+ Compute  metric-system constant
+</summary>
+</member>
+<member name="P:Tutorial.UnitsOfMeasure.sampleValue2">
+<summary>
+ Define a unitized constant
+</summary>
+</member>
+<member name="P:Tutorial.UnitsOfMeasure.sampleValue1">
+<summary>
+ Define a unitized constant
+</summary>
+</member>
+<member name="T:Tutorial.UnitsOfMeasure">
+<summary>
+ Units of measure are a way to annotate primitive numeric types in a type-safe way.
+ You can then perform type-safe arithmetic on these values.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/units-of-measure
+</summary>
+</member>
+<member name="T:Tutorial.OptionValues.ShippingCalculator">
+<summary>
+ Next, define an interface type the represents an object to compute the shipping zone for the customer&apos;s zip code, 
+ given implementations for the &apos;getState&apos; and &apos;getShippingZone&apos; abstract methods.
+</summary>
+</member>
+<member name="T:Tutorial.OptionValues.Customer">
+<summary>
+ Next, define a type where the ZipCode is optionsl.
+</summary>
+</member>
+<member name="T:Tutorial.OptionValues.ZipCode">
+<summary>
+ First, define a zipcode defined via Single-case Discriminated Union.
+</summary>
+</member>
+<member name="M:Tutorial.OptionValues.CustomerShippingZone(Tutorial.OptionValues.ShippingCalculator,Tutorial.OptionValues.Customer)">
+<summary>
+ Next, calculate a shipping zone for a customer using a calculator instance.
+ This uses combinators in the Option module to allow a functional pipeline for
+ transforming data with Optionals.
+</summary>
+</member>
+<member name="T:Tutorial.OptionValues">
+<summary>
+ Option values are any kind of value tagged with either &apos;Some&apos; or &apos;None&apos;.
+ They are used extensively in F# code to represent the cases where many other
+ languages would use null references.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/options
+</summary>
+</member>
+<member name="T:Tutorial.PatternMatching.Employee">
+<summary>
+ A Discriminated Union of 3 different kinds of employees
+</summary>
+</member>
+<member name="T:Tutorial.PatternMatching.Person">
+<summary>
+ A record for a person&apos;s first and last name
+</summary>
+</member>
+<member name="M:Tutorial.PatternMatching.printParseResult(System.String)">
+<summary>
+ Pattern Matching via &apos;function&apos; keyword and Active Patterns often looks like this.
+</summary>
+</member>
+<member name="M:Tutorial.PatternMatching.parseHelper``2(Microsoft.FSharp.Core.FSharpFunc{``0,System.Tuple{System.Boolean,``1}})">
+<summary>
+ You can also use the shorthand function construct for pattern matching, 
+ which is useful when you&apos;re writing functions which make use of Partial Application.
+</summary>
+</member>
+<member name="M:Tutorial.PatternMatching.findDaveWithOpenPosition(Microsoft.FSharp.Collections.FSharpList{Tutorial.PatternMatching.Employee})">
+<summary>
+ Find all managers/executives named &quot;Dave&quot; who do not have any reports.
+ This uses the &apos;function&apos; shorthand to as a lambda expression.
+</summary>
+</member>
+<member name="M:Tutorial.PatternMatching.countReports(Tutorial.PatternMatching.Employee)">
+<summary>
+ Count everyone underneath the employee in the management hierarchy,
+ including the employee.
+</summary>
+</member>
+<member name="T:Tutorial.PatternMatching">
+<summary>
+ Pattern Matching is a feature of F# that allows you to utilize Patterns,
+ which are a way to compare data with a logical structure or structures, 
+ decompose data into constituent parts, or extract information from data in various ways.
+ You can then dispatch on the &quot;shape&quot; of a pattern via Pattern Matching.
+ 
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/pattern-matching
+</summary>
+</member>
+<member name="T:Tutorial.DiscriminatedUnions.Shape">
+<summary>
+ Discriminated Unions can also be represented as structs via the &apos;Struct&apos; attribute.
+ This is helpful in situations where the performance of structs outweighs
+ the flexibility of reference types.
+
+ However, there are two important things to know when doing this:
+     1. A struct DU cannot be recursively-defined.
+     2. A struct DU must have unique names for each of its cases.
+</summary>
+</member>
+<member name="T:Tutorial.DiscriminatedUnions.BST`1">
+<summary>
+ Disciminated Unions also support recursive definitions.
+
+ This represents a Binary Search Tree, with one case being the Empty tree,
+ and the other being a Node with a value and two subtrees.
+</summary>
+</member>
+<member name="T:Tutorial.DiscriminatedUnions.Card">
+<summary>
+ This is a record type that combines a Suit and a Rank.
+ It&apos;s common to use both Records and Disciminated Unions when representing data.
+</summary>
+</member>
+<member name="T:Tutorial.DiscriminatedUnions.Rank.Value">
+<summary>
+ Represents the rank of cards 2 .. 10
+</summary>
+</member>
+<member name="M:Tutorial.DiscriminatedUnions.Rank.GetAllRanks">
+<summary>
+ Discriminated Unions can also implement object-oriented members.
+</summary>
+</member>
+<member name="T:Tutorial.DiscriminatedUnions.Rank">
+<summary>
+ A Disciminated Union can also be used to represent the rank of a playing card.
+</summary>
+</member>
+<member name="T:Tutorial.DiscriminatedUnions.Suit">
+<summary>
+ The following represents the suit of a playing card.
+</summary>
+</member>
+<member name="M:Tutorial.DiscriminatedUnions.insert``1(``0,Tutorial.DiscriminatedUnions.BST{``0})">
+<summary>
+ Inserts an item in the Binary Search Tree.
+ Finds the place to insert recursively using Pattern Matching, then inserts a new node.
+ If the item is already present, it does not insert anything.
+</summary>
+</member>
+<member name="M:Tutorial.DiscriminatedUnions.exists``1(``0,Tutorial.DiscriminatedUnions.BST{``0})">
+<summary>
+ Check if an item exists in the binary search tree.
+ Searches recursively using Pattern Matching.  Returns true if it exists; otherwise, false.
+</summary>
+</member>
+<member name="M:Tutorial.DiscriminatedUnions.unwrapAddress(Tutorial.DiscriminatedUnions.Address)">
+<summary>
+ When you need the value, you can unwrap the underlying value with a simple function.
+</summary>
+</member>
+<member name="M:Tutorial.DiscriminatedUnions.printAllCards">
+<summary>
+ This example prints all the cards in a playing deck.
+</summary>
+</member>
+<member name="M:Tutorial.DiscriminatedUnions.showPlayingCard(Tutorial.DiscriminatedUnions.Card)">
+<summary>
+ This example converts a &apos;Card&apos; object to a string.
+</summary>
+</member>
+<member name="P:Tutorial.DiscriminatedUnions.fullDeck">
+<summary>
+ This computes a list representing all the cards in the deck.
+</summary>
+</member>
+<member name="T:Tutorial.DiscriminatedUnions">
+<summary>
+ Discriminated Unions (DU for short) are values which could be a number of named forms or cases.
+ Data stored in DUs can be one of several distinct values.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/discriminated-unions
+</summary>
+</member>
+<member name="T:Tutorial.RecordTypes.ContactCardStruct">
+<summary>
+ Records can also be represented as structs via the &apos;Struct&apos; attribute.
+ This is helpful in situations where the performance of structs outweighs
+ the flexibility of reference types.
+</summary>
+</member>
+<member name="P:Tutorial.RecordTypes.ContactCardAlternate.PrintedContactCard">
+<summary>
+ Members can implement object-oriented members.
+</summary>
+</member>
+<member name="T:Tutorial.RecordTypes.ContactCardAlternate">
+<summary>
+ This is an example of a Record with a member.
+</summary>
+</member>
+<member name="T:Tutorial.RecordTypes.ContactCard">
+<summary>
+ This example shows how to define a new record type.  
+</summary>
+</member>
+<member name="M:Tutorial.RecordTypes.showContactCard(Tutorial.RecordTypes.ContactCard)">
+<summary>
+ This example shows how to write a function that processes a record value.
+ It converts a &apos;ContactCard&apos; object to a string.
+</summary>
+</member>
+<member name="P:Tutorial.RecordTypes.contact2">
+<summary>
+ This example shows how to use &quot;copy-and-update&quot; on record values. It creates 
+ a new record value that is a copy of contact1, but has different values for 
+ the &apos;Phone&apos; and &apos;Verified&apos; fields.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/copy-and-update-record-expressions
+</summary>
+</member>
+<member name="P:Tutorial.RecordTypes.contactOnSameLine">
+<summary>
+ You can also do this on the same line with &apos;;&apos; separators.
+</summary>
+</member>
+<member name="P:Tutorial.RecordTypes.contact1">
+<summary>
+ This example shows how to instantiate a record type.
+</summary>
+</member>
+<member name="T:Tutorial.RecordTypes">
+<summary>
+ Records are an aggregate of named values, with optional members (such as methods).
+ They are immutable and have structural equality semantics.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/records
+</summary>
+</member>
+<member name="M:Tutorial.RecursiveFunctions.sumListTailRecursive(Microsoft.FSharp.Collections.FSharpList{System.Int32})">
+<summary>
+ This invokes the tail recursive helper function, providing &apos;0&apos; as a seed accumulator.
+ An approach like this is common in F#.
+</summary>
+</member>
+<member name="M:Tutorial.RecursiveFunctions.sumListTailRecHelper(System.Int32,Microsoft.FSharp.Collections.FSharpList{System.Int32})">
+<summary>
+ This makes &apos;sumList&apos; tail recursive, using a helper function with a result accumulator.
+</summary>
+</member>
+<member name="M:Tutorial.RecursiveFunctions.sumList(Microsoft.FSharp.Collections.FSharpList{System.Int32})">
+<summary>
+ This example computes the sum of a list of integers using recursion.
+</summary>
+</member>
+<member name="M:Tutorial.RecursiveFunctions.greatestCommonFactor(System.Int32,System.Int32)">
+<summary>
+ Computes the greatest common factor of two integers.
+
+ Since all of the recursive calls are tail calls,
+ the compiler will turn the function into a loop,
+ which improves performance and reduces memory consumption.
+</summary>
+</member>
+<member name="M:Tutorial.RecursiveFunctions.factorial(System.Int32)">
+<summary>
+ This example shows a recursive function that computes the factorial of an 
+ integer. It uses &apos;let rec&apos; to define a recursive function.
+</summary>
+</member>
+<member name="T:Tutorial.RecursiveFunctions">
+<summary>
+ Recursive functions can call themselves. In F#, functions are only recursive
+ when declared using &apos;let rec&apos;.
+
+ Recursion is the preferred way to process sequences or collections in F#.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/functions/index#recursive-functions
+</summary>
+</member>
+<member name="P:Tutorial.Sequences.first100ValuesOfRandomWalk">
+<summary>
+ This example shows the first 100 elements of the random walk.
+</summary>
+</member>
+<member name="M:Tutorial.Sequences.randomWalk(System.Double)">
+<summary>
+ This is an infinite sequence which is a random walk.
+ This example uses yield! to return each element of a subsequence.
+</summary>
+</member>
+<member name="P:Tutorial.Sequences.evenNumbers">
+<summary>
+ This sequence producing the even numbers up to 2000.
+</summary>
+</member>
+<member name="P:Tutorial.Sequences.seq3">
+<summary>
+ This is a sequence producing the words &quot;hello&quot; and &quot;world&quot;
+</summary>
+</member>
+<member name="P:Tutorial.Sequences.numbersSeq">
+<summary>
+ This is an on-demand sequence from 1 to 100.
+</summary>
+</member>
+<member name="P:Tutorial.Sequences.seq2">
+<summary>
+ This a sequence of values.
+</summary>
+</member>
+<member name="M:Tutorial.Sequences.seq1``1">
+<summary>
+ This is the empty sequence.
+</summary>
+</member>
+<member name="T:Tutorial.Sequences">
+<summary>
+ Sequences are a logical series of elements, all of the same type.  These are a more general type than Lists and Arrays.
+
+ Sequences are evaluated on-demand and are re-evaluated each time they are iterated. 
+ An F# sequence is an alias for a .NET System.Collections.Generic.IEnumerable&lt;&apos;T&gt;.
+
+ Sequence processing functions can be applied to Lists and Arrays as well.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/sequences
+</summary>
+</member>
+<member name="P:Tutorial.Arrays.sumOfLengthsOfWords">
+<summary>
+ You can transform arrays using &apos;Array.map&apos; and other functional programming operations.
+ The following calculates the sum of the lengths of the words that start with &apos;h&apos;.
+</summary>
+</member>
+<member name="P:Tutorial.Arrays.evenNumbersSlice">
+<summary>
+ Sub-arrays are extracted using slicing notation.
+</summary>
+</member>
+<member name="P:Tutorial.Arrays.evenNumbers">
+<summary>
+ This is an array initialized by index and containing the even numbers from 0 to 2000.
+</summary>
+</member>
+<member name="P:Tutorial.Arrays.array4">
+<summary>
+ This is an array containing only the words &quot;hello&quot; and &quot;world&quot;.
+</summary>
+</member>
+<member name="P:Tutorial.Arrays.array3">
+<summary>
+ This is an array of numbers from 1 to 1000.
+</summary>
+</member>
+<member name="P:Tutorial.Arrays.array2">
+<summary>
+ Arrays are specified using the same range of constructs as lists.
+</summary>
+</member>
+<member name="M:Tutorial.Arrays.array1``1">
+<summary>
+ This is The empty array.  Note that the syntax is similar to that of Lists, but uses `[| ... |]` instead.
+</summary>
+</member>
+<member name="T:Tutorial.Arrays">
+<summary>
+ Arrays are fixed-size, mutable collections of elements of the same type.
+
+ Although they are similar to Lists (they support enumeration and have similar combinators for data processing),
+ they are generally faster and support fast random access.  This comes at the cost of being less safe by being mutable.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/arrays
+</summary>
+</member>
+<member name="P:Tutorial.Lists.sumOfSquares">
+<summary>
+ There are many other list combinations. The following computes the sum of the squares of the 
+ numbers divisible by 3.
+</summary>
+</member>
+<member name="P:Tutorial.Lists.squares">
+<summary>
+ Lists can be transformed using &apos;List.map&apos; and other functional programming combinators.
+ This definition produces a new list by squaring the numbers in numberList, using the pipeline 
+ operator to pass an argument to List.map.
+</summary>
+</member>
+<member name="P:Tutorial.Lists.blackSquares">
+<summary>
+ Computations can include conditionals.  This is a list containing the tuples
+ which are the coordinates of the black squares on a chess board.
+</summary>
+</member>
+<member name="P:Tutorial.Lists.daysList">
+<summary>
+ Lists can also be generated by computations. This is a list containing 
+ all the days of the year.
+</summary>
+</member>
+<member name="P:Tutorial.Lists.numberList">
+<summary>
+ This is a list of integers from 1 to 1000
+</summary>
+</member>
+<member name="P:Tutorial.Lists.list3">
+<summary>
+ You can also separate elements by placing them on their own lines.
+</summary>
+</member>
+<member name="P:Tutorial.Lists.list2">
+<summary>
+ This is a list with 3 elements.  &apos;;&apos; is used to separate elements on the same line.
+</summary>
+</member>
+<member name="M:Tutorial.Lists.list1``1">
+<summary>
+ Lists are defined using [ ... ].  This is an empty list.
+</summary>
+</member>
+<member name="T:Tutorial.Lists">
+<summary>
+ Lists are ordered, immutable, singly-linked lists.  They are eager in their evaluation.
+ 
+ This module shows various ways to generate lists and process lists with some functions
+ in the &apos;List&apos; module in the F# Core Library.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/lists
+</summary>
+</member>
+<member name="P:Tutorial.PipelinesAndComposition.squareOddValuesAndAddOneComposition">
+<summary>
+ Lastly, you can eliminate the need to explicitly take &apos;values&apos; in as a parameter by using &apos;&gt;&gt;&apos;
+ to compose the two core operations: filtering out even numbers, then squaring and adding one.
+ Likewise, the &apos;fun x -&gt; ...&apos; bit of the lambda expression is also not needed, because &apos;x&apos; is simply
+ being defined in that scope so that it can be passed to a functional pipeline.  Thus, &apos;&gt;&gt;&apos; can be used
+ there as well.
+
+ The result of &apos;squareOddValuesAndAddOneComposition&apos; is itself another function which takes a
+ list of integers as its input.  If you execute &apos;squareOddValuesAndAddOneComposition&apos; with a list
+ of integers, you&apos;ll notice that it produces the same results as previous functions.
+
+ This is using what is known as function composition.  This is possible because functions in F#
+ use Partial Application and the input and output types of each data processing operation match
+ the signatures of the functions we&apos;re using.
+</summary>
+</member>
+<member name="M:Tutorial.PipelinesAndComposition.squareOddValuesAndAddOneShorterPipeline(Microsoft.FSharp.Collections.FSharpList{System.Int32})">
+<summary>
+ You can shorten &apos;squareOddValuesAndAddOnePipeline&apos; by moving the second `List.map` call
+ into the first, using a Lambda Function.
+
+ Note that pipelines are also being used inside the lambda function.  F# pipe operators
+ can be used for single values as well.  This makes them very powerful for processing data.
+</summary>
+</member>
+<member name="M:Tutorial.PipelinesAndComposition.squareOddValuesAndAddOnePipeline(Microsoft.FSharp.Collections.FSharpList{System.Int32})">
+<summary>
+ A preferred way to write &apos;squareOddValuesAndAddOne&apos; is to use F# pipe operators.
+ This allows you to avoid creating intermediate results, but is much more readable
+ than nesting function calls like &apos;squareOddValuesAndAddOneNested&apos;
+</summary>
+</member>
+<member name="M:Tutorial.PipelinesAndComposition.squareOddValuesAndAddOneNested(Microsoft.FSharp.Collections.FSharpList{System.Int32})">
+<summary>
+ A shorter way to write &apos;squareOddValuesAndAddOne&apos; is to nest each
+ sub-result into the function calls themselves.
+
+ This makes the function much shorter, but it&apos;s difficult to see the
+ order in which the data is processed.
+</summary>
+</member>
+<member name="M:Tutorial.PipelinesAndComposition.squareOddValuesAndAddOne(Microsoft.FSharp.Collections.FSharpList{System.Int32})">
+<summary>
+ Given a list of integers, it filters out the even numbers,
+ squares the resulting odds, and adds 1 to the squared odds.
+</summary>
+</member>
+<member name="P:Tutorial.PipelinesAndComposition.numbers">
+<summary>
+ A list of 5 numbers.  More on lists later.
+</summary>
+</member>
+<member name="M:Tutorial.PipelinesAndComposition.isOdd(System.Int32)">
+<summary>
+ Tests if an integer value is odd via modulo.
+</summary>
+</member>
+<member name="M:Tutorial.PipelinesAndComposition.addOne(System.Int32)">
+<summary>
+ Adds 1 to a value.
+</summary>
+</member>
+<member name="M:Tutorial.PipelinesAndComposition.square(System.Int32)">
+<summary>
+ Squares a value.
+</summary>
+</member>
+<member name="T:Tutorial.PipelinesAndComposition">
+<summary>
+ The F# pipe operators (&apos;|&gt;&apos;, &apos;&lt;|&apos;, etc.) and F# composition operators (&apos;&gt;&gt;&apos;, &apos;&lt;&lt;&apos;)
+ are used extensively when processing data.  These operators are themselves functions
+ which make use of Partial Application.
+
+ To learn more about these operators, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/functions/#function-composition-and-pipelining
+ To learn more about Partial Application, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/functions/#partial-application-of-arguments
+</summary>
+</member>
+<member name="P:Tutorial.Tuples.sampleStructTuple">
+<summary>
+ Tuples are normally objects, but they can also be represented as structs.
+
+ These interoperate completely with structs in C# and Visual Basic.NET; however,
+ struct tuples are not implicitly convertable with object tuples (often called reference tuples).
+
+ The second line below will fail to compile because of this.  Uncomment it to see what happens.
+</summary>
+</member>
+<member name="P:Tutorial.Tuples.tuple3">
+<summary>
+ A simple tuple of integers with a type annotation.
+ Type annotations for tuples use the * symbol to separate elements
+</summary>
+</member>
+<member name="P:Tutorial.Tuples.tuple2">
+<summary>
+ A tuple consisting of an integer, a string,
+ and a double-precision floating point number.
+</summary>
+</member>
+<member name="M:Tutorial.Tuples.swapElems``2(``0,``1)">
+<summary>
+ A function that swaps the order of two values in a tuple. 
+
+ F# Type Inference will automatically generalize the function to have a generic type,
+ meaning that it will work with any type.
+</summary>
+</member>
+<member name="P:Tutorial.Tuples.tuple1">
+<summary>
+ A simple tuple of integers.
+</summary>
+</member>
+<member name="T:Tutorial.Tuples">
+<summary>
+ Tuples are simple combinations of data values into a combined value.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/tuples
+</summary>
+</member>
+<member name="P:Tutorial.StringManipulation.substring">
+<summary>
+ Substrings use the indexer notation.  This line extracts the first 7 characters as a substring.
+ Note that like many languages, Strings are zero-indexed in F#.
+</summary>
+</member>
+<member name="P:Tutorial.StringManipulation.helloWorld">
+<summary>
+ String concatenation is normally done with the &apos;+&apos; operator.
+</summary>
+</member>
+<member name="P:Tutorial.StringManipulation.string4">
+<summary>
+ String literals can also use triple-quotes.
+</summary>
+</member>
+<member name="P:Tutorial.StringManipulation.string3">
+<summary>
+ Strings can also use @ to create a verbatim string literal.
+ This will ignore escape characters such as &apos;\&apos;, &apos;\n&apos;, &apos;\t&apos;, etc.
+</summary>
+</member>
+<member name="P:Tutorial.StringManipulation.string1">
+<summary>
+ Strings use double quotes.
+</summary>
+</member>
+<member name="T:Tutorial.StringManipulation">
+<summary>
+ Strings are fundamental data types in F#.  Here are some examples of Strings and basic String manipulation.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/strings
+</summary>
+</member>
+<member name="P:Tutorial.Booleans.boolean3">
+<summary>
+ Operators on booleans are &apos;not&apos;, &apos;&amp;&amp;&apos; and &apos;||&apos;.
+</summary>
+</member>
+<member name="P:Tutorial.Booleans.boolean1">
+<summary>
+ Booleans values are &apos;true&apos; and &apos;false&apos;.
+</summary>
+</member>
+<member name="T:Tutorial.Booleans">
+<summary>
+ Booleans are fundamental data types in F#.  Here are some examples of Booleans and conditional logic.
+
+ To learn more, see: 
+     https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/primitive-types
+     and
+     https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/symbol-and-operator-reference/boolean-operators
+</summary>
+</member>
+<member name="M:Tutorial.BasicFunctions.sampleFunction3(System.Double)">
+<summary>
+ Conditionals use if/then/elid/elif/else.
+
+ Note that F# uses whitespace indentation-aware syntax, similar to languages like Python.
+</summary>
+</member>
+<member name="M:Tutorial.BasicFunctions.sampleFunction2(System.Int32)">
+<summary>
+ When needed, annotate the type of a parameter name using &apos;(argument:type)&apos;.  Parentheses are required.
+</summary>
+</member>
+<member name="P:Tutorial.BasicFunctions.result1">
+<summary>
+ Apply the function, naming the function return result using &apos;let&apos;. 
+ The variable type is inferred from the function return type.
+</summary>
+</member>
+<member name="M:Tutorial.BasicFunctions.sampleFunction1(System.Int32)">
+<summary>
+ You use &apos;let&apos; to define a function. This one accepts an integer argument and returns an integer. 
+ Parentheses are optional for function arguments, except for when you use an explicit type annotation.
+</summary>
+</member>
+<member name="T:Tutorial.BasicFunctions">
+<summary>
+ Much of F# programming consists of defining functions that transform input data to produce
+ useful results.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/functions/
+</summary>
+</member>
+<member name="P:Tutorial.Immutability.otherNumber">
+<summary>
+ A mutable binding.  This is required to be able to mutate the value of &apos;otherNumber&apos;.
+</summary>
+</member>
+<member name="P:Tutorial.Immutability.number">
+<summary>
+ Binding a value to a name via &apos;let&apos; makes it immutable.
+
+ The second line of code fails to compile because &apos;number&apos; is immutable and bound.
+ Re-defining &apos;number&apos; to be a different value is not allowed in F#.
+</summary>
+</member>
+<member name="T:Tutorial.Immutability">
+<summary>
+ Values in F# are immutable by default.  They cannot be changed
+ in the course of a program&apos;s execution unless explicitly marked as mutable.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/values/index#why-immutable
+</summary>
+</member>
+<member name="P:Tutorial.IntegersAndNumbers.sampleTableOfSquares">
+<summary>
+ This is a list of all tuples containing all the numbers from 0 to 99 and their squares.
+</summary>
+</member>
+<member name="P:Tutorial.IntegersAndNumbers.sampleNumbers">
+<summary>
+ This is a list of the numbers from 0 to 99.
+</summary>
+</member>
+<member name="P:Tutorial.IntegersAndNumbers.sampleInteger2">
+<summary>
+ This computed a new number by some arithmetic.  Numeric types are converted using
+ functions &apos;int&apos;, &apos;double&apos; and so on.
+</summary>
+</member>
+<member name="P:Tutorial.IntegersAndNumbers.sampleDouble">
+<summary>
+ This is a sample floating point number.
+</summary>
+</member>
+<member name="P:Tutorial.IntegersAndNumbers.sampleInteger">
+<summary>
+ This is a sample integer.
+</summary>
+</member>
+<member name="T:Tutorial.IntegersAndNumbers">
+<summary>
+ A module is a grouping of F# code, such as values, types, and function values. 
+ Grouping code in modules helps keep related code together and helps avoid name conflicts in your program.
+
+ To learn more, see: https://docs.microsoft.com/en-us/dotnet/articles/fsharp/language-reference/modules
+</summary>
+</member>
+</members>
+</doc>

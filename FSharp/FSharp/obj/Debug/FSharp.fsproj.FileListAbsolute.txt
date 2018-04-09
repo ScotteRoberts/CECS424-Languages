@@ -1,0 +1,10 @@
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\bin\Debug\FSharp.XML
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\bin\Debug\FSharp.exe
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\bin\Debug\FSharp.pdb
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\bin\Debug\FSharp.Core.dll
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\bin\Debug\System.ValueTuple.dll
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\bin\Debug\FSharp.Core.xml
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\obj\Debug\FSharp.fsprojResolveAssemblyReference.cache
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\obj\Debug\FSharp.fsproj.CopyComplete
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\obj\Debug\FSharp.exe
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\FSharp\FSharp\obj\Debug\FSharp.pdb
