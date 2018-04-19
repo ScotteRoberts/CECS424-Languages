@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MonteCarlo", "MonteCarlo\MonteCarlo.fsproj", "{42445AD6-1157-45A2-8483-0DC85F7641AC}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RailroadProgramming", "RailroadProgramming\RailroadProgramming.fsproj", "{BC50487B-BE98-4306-92E7-D184364BF485}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{42445AD6-1157-45A2-8483-0DC85F7641AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42445AD6-1157-45A2-8483-0DC85F7641AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42445AD6-1157-45A2-8483-0DC85F7641AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC50487B-BE98-4306-92E7-D184364BF485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC50487B-BE98-4306-92E7-D184364BF485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC50487B-BE98-4306-92E7-D184364BF485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC50487B-BE98-4306-92E7-D184364BF485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

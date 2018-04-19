@@ -24,8 +24,22 @@ type HitResult =
     | Miss of float
 
 let isHit point =
-    sqrt (pown point.xCoord 2 + pown point.yCoord 2) <= 1.0
+    let hitValue = sqrt (pown point.xCoord 2 + pown point.yCoord 2)
+    let didHit = hitValue <= 1.0
+    match didHit with
+    | true -> Hit
+    | false -> Miss (hitValue - 1.0)
 
+let countHits n =
+    n
+    |> throwDarts
+    |> List.map isHit
+    |> List.filter (fun x -> x = Hit)
+    |> List.length
+    // This should be a reduce in here.
+
+let estimatePi n =
+    float (countHits n) / float n * 4.0
 
 
 [<EntryPoint>]
