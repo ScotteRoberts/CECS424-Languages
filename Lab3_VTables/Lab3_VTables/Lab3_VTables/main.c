@@ -10,14 +10,17 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+// Employee Types Enumeration
+enum Emp_Types {Employee, HourlyEmployee, CommissionEmployee, SeniorSalesman};
+
 // Commission Employee constants
-static const int commission_factor = 0.1;
+static const double commission_factor = 0.1;
 static const int commission_bonus = 40000;
 
 // Senior Salesman constants
-static const int s_salesman_factor = 0.2;
+static const double s_salesman_factor = 0.2;
 static const int s_salesman_bonus = 50000;
-static const int s_salesman_age_factor = 0.05;
+static const double s_salesman_age_factor = 0.05;
 static const int s_salesman_min_age = 40;
 
 
@@ -37,7 +40,9 @@ struct HourlyEmployee {
 // Hourly Employee prints how much money they make.
 void Speak_Hourly(struct Employee* e_ptr) {
     struct HourlyEmployee *h_ptr = (struct HourlyEmployee*) e_ptr;
-    printf("I work for %f dollars per hour", h_ptr -> hourly_rate);
+    printf("I am %d years old.\n", h_ptr -> age);
+    printf("I make %lf dollars an hour.\n", h_ptr -> hourly_rate);
+    printf("I have worked %lf hours.\n", h_ptr -> hours);
 }
 // Hourly Employee returns the money they have made.
 double GetPay_Hourly (struct Employee* e_ptr) {
@@ -65,7 +70,8 @@ struct CommissionEmployee {
 // Commission Employee prints how much money they make.
 void Speak_Commission(struct Employee* e_ptr) {
     struct CommissionEmployee *c_ptr = (struct CommissionEmployee*) e_ptr;
-    printf("I make commission on %f dollars in sales!", c_ptr -> sales_amount);
+    printf("I am %d years old.\n", c_ptr -> age);
+    printf("I have made %lf in sales\n", c_ptr -> sales_amount);
 }
 
 // Commission Employee returns the money they have made.
@@ -114,10 +120,138 @@ void Construct_Senior(struct SeniorSalesman* s_ptr) {
     s_ptr -> sales_amount = 0;
 }
 
-
-int main(int argc, const char * argv[]) {
-    
-    printf("Hello, World!\n");
-    return 0;
+void Display_Menu() {
+    printf("\nWhich Employee would you like to choose?\n");
+    printf("1. Hourly Employee\n");
+    printf("2. Commission Employee\n");
+    printf("3. Senior Salesman\n");
+    printf("0. Quit\n");
 }
 
+int Get_Int_Choice() {
+    int num;
+    scanf("%d", &num);
+    // Handle errors here if you care.
+    return num;
+}
+
+double Get_Double_Choice() {
+    double num;
+    scanf("%lf", &num);
+    // Handle errors here if you care.
+    return num;
+}
+
+int Ask_Age () {
+    printf("\nHow old is the employee?\n");
+    return Get_Int_Choice();
+}
+
+double Ask_PayRate() {
+    printf("\nWhat is the hourly rate of the employee?\n");
+    return Get_Double_Choice();
+}
+
+double Ask_Hours() {
+    printf("\nWhat are the hours worked by the employee?\n");
+    return Get_Double_Choice();
+}
+
+double Ask_Sales_Amount() {
+    printf("\nWhat was your total sales amount?\n");
+    return Get_Double_Choice();
+}
+
+// I TRIED THE FUNCTIONAL WAY... didn't work out as planned.
+
+int main(int argc, const char * argv[]) {
+    // All Employee types
+    struct Employee *e_ptr = NULL;
+    struct HourlyEmployee *h_ptr = malloc(sizeof(struct HourlyEmployee*));
+    struct CommissionEmployee *c_ptr = malloc(sizeof(struct CommissionEmployee*));
+    struct SeniorSalesman *s_ptr = malloc(sizeof(struct SeniorSalesman*));
+    
+    // All Fields
+    double hourly_rate, hours, sales_amount;
+    int age;
+    int choice = -1;
+    do {
+        Display_Menu();
+        choice = Get_Int_Choice();
+        
+        switch (choice) {
+            case 0:
+                break;
+            case 1:
+                // Allocate Memory
+                e_ptr = malloc(sizeof(struct HourlyEmployee*));
+                
+                // Construct Appropriate Class
+                Construct_Hourly(h_ptr);
+                age = Ask_Age();
+                h_ptr -> age = age;
+                hourly_rate = Ask_PayRate();
+                h_ptr -> hourly_rate = hourly_rate;
+                hours = Ask_Hours();
+                h_ptr -> hours = hours;
+                
+                // Set Employee to Appropriate Class
+                e_ptr = (struct Employee*) h_ptr;
+                
+                // Speak
+                e_ptr -> v_table = h_ptr -> v_table;
+                ((void(*)(struct Employee*))Vtable_Hourly[0])((struct Employee*)e_ptr);
+                printf("The total pay: %lf\n", GetPay_Hourly(e_ptr));
+                
+                break;
+            case 2:
+                // Allocate Memory
+                e_ptr = malloc(sizeof(struct CommissionEmployee*));
+                
+                // Construct Appropriate Class
+                Construct_Commission(c_ptr);
+                age = Ask_Age();
+                c_ptr -> age = age;
+                sales_amount = Ask_Sales_Amount();
+                c_ptr -> sales_amount = sales_amount;
+                
+                // Set Employee to Appropriate Class
+                e_ptr = (struct Employee*) c_ptr;
+                
+                // Speak
+                e_ptr -> v_table = c_ptr -> v_table;
+                
+                ((void(*)(struct Employee*))Vtable_Commission[0])((struct Employee*)e_ptr);
+                printf("The total pay: %lf\n", GetPay_Commission(e_ptr));
+                
+                break;
+            case 3:
+                // Allocate Memory
+                e_ptr = malloc(sizeof(struct SeniorSalesman*));
+                
+                // Construct Appropriate Class
+                Construct_Senior(s_ptr);
+                age = Ask_Age();
+                s_ptr -> age = age;
+                sales_amount = Ask_Sales_Amount();
+                s_ptr -> sales_amount = sales_amount;
+                
+                // Set Employee to Appropriate Class
+                e_ptr = (struct Employee*) s_ptr;
+                e_ptr -> v_table = s_ptr -> v_table;
+                
+                // Speak
+                ((void(*)(struct Employee*))Vtable_Senior[0])((struct Employee*)e_ptr);
+                printf("The total pay: %lf\n", GetPay_Senior(e_ptr));
+                break;
+            default:
+                printf("\nThere are no employees of that type.\n");
+        }
+    } while (choice != 0);
+
+    // Free the memory space for employee pointer.
+    free(e_ptr);
+    free(h_ptr);
+    free(c_ptr);
+    free(s_ptr);
+}
