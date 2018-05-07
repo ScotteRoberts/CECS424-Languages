@@ -1,0 +1,11 @@
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\bin\Debug\MonteCarlo.exe.config
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\bin\Debug\MonteCarlo.XML
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\bin\Debug\MonteCarlo.exe
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\bin\Debug\MonteCarlo.pdb
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\bin\Debug\FSharp.Core.dll
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\bin\Debug\System.ValueTuple.dll
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\bin\Debug\FSharp.Core.xml
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\obj\Debug\MonteCarlo.fsprojResolveAssemblyReference.cache
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\obj\Debug\MonteCarlo.fsproj.CopyComplete
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\obj\Debug\MonteCarlo.exe
+C:\Users\Scott Roberts\Documents\GitHub\CECS424-Languages\Lab4_RailwayToHell\RailwayToHell\MonteCarlo\obj\Debug\MonteCarlo.pdb
